@@ -12,23 +12,25 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  script: './setup.sh && cp -r $SRC_DIR $PREFIX'
+  number: 1
   skip: True  # [win or py3k]
 
 requirements:
   build:
+    - {{ compiler('c') }}
+  host:
+    - setuptools
     - python
-    - toolchain
     - cython
     - numpy 1.11.*
   run:
     - python
-    - numpy >=1.11
-    - scipy 1.0.*
+    - {{ pin_compatible('numpy') }}
+    - scipy
     - h5py 2.7.*
-    - pyyaml 3.12
+    - pyyaml 3.12.*
     - pyzmq 16.0.*
+    - matplotlib
 
 test:
   commands:
