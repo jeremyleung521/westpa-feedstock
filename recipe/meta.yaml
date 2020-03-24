@@ -27,9 +27,9 @@ requirements:
     - python
     - {{ pin_compatible('numpy') }}
     - scipy
-    - h5py 2.9.*
-    - pyyaml 5.1.*
-    - pyzmq 18.0.*
+    - h5py 2.10.*
+    - pyyaml 5.2.*
+    - pyzmq 18.1.*
     - matplotlib-base
     - blessings 1.7.*
 
