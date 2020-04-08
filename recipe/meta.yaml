@@ -1,6 +1,6 @@
 {% set name = "westpa" %}
-{% set version = "2017.10" %}
-{% set sha256 = "3129dd1d651c4fe542599f2d5ecdbff09e5d704ea8c97c8ae7dca7b0bd4598a6" %}
+{% set version = "2020.01" %}
+{% set sha256 = "11e39a76af081dfd6b3472a9bb68579d55aac66d08ea6eff6a6cbaee9386e72d" %}
 
 package:
   name: {{ name|lower }}
@@ -12,8 +12,8 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
-  skip: True  # [win or py3k]
+  number: 0
+  skip: True  # [win or py2k]
 
 requirements:
   build:
@@ -22,15 +22,16 @@ requirements:
     - setuptools
     - python
     - cython
-    - numpy 1.11.*
+    - numpy 1.16.*
   run:
     - python
     - {{ pin_compatible('numpy') }}
     - scipy
-    - h5py 2.7.*
-    - pyyaml 3.12.*
-    - pyzmq 16.0.*
-    - matplotlib
+    - h5py 2.10.*
+    - pyyaml 5.3.*
+    - pyzmq 19.0.*
+    - matplotlib-base
+    - blessings 1.7.*
 
 test:
   commands:
@@ -51,9 +52,9 @@ test:
 
 about:
   home: https://westpa.github.io/westpa
-  license: GPL-3.0
-  license_family: GPL
-  license_file: COPYING
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
   summary: 'Interoperable, highly-scalable software for weighted ensemble simulation.'
 
   description: |
