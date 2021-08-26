@@ -16,7 +16,6 @@ mkdir -p ${CONDA_PREFIX}/etc/conda/{activate,deactivate}.d
 touch ${CONDA_PREFIX}/etc/conda/{activate,deactivate}.d/env_vars.sh
 cat << EOC >> ${CONDA_PREFIX}/etc/conda/activate.d/env_vars.sh
 #!/usr/bin/env bash
-##. \$(dirname \$(dirname \`which python3\`))/${PKG_NAME}-${PKG_VERSION}/westpa.sh
 . ${CONDA_PREFIX}/${PKG_NAME}-${PKG_VERSION}/westpa.sh
 EOC
 
@@ -28,4 +27,7 @@ unset WEST_PYTHON
 export PATH=${PATH#${CONDA_PREFIX}/${PKG_NAME}-${PKG_VERSION}/bin:}
 EOD
 
-
+# Clean up of previously set codes in activate.d
+sed -i 's,'". ${PREFIX}/westpa-2020.03/westpa.sh"',,' ${PREFIX}/etc/conda/activate.d/env_vars.sh
+sed -i 's,'". ${PREFIX}/westpa-2020.02/westpa.sh"',,' ${PREFIX}/etc/conda/activate.d/env_vars.sh
+sed -i 's,'". ${PREFIX}/westpa-2020.01/westpa.sh"',,' ${PREFIX}/etc/conda/activate.d/env_vars.sh
