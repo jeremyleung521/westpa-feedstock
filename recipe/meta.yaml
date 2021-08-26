@@ -1,5 +1,5 @@
 {% set name = "westpa" %}
-{% set version = "2020.03" %}
+{% set version = "2020.05" %}
 {% set sha256 = "8fca932aff56b67999900804cca6ebfce03c0d4d0b3a437e9b5b9539b9ecb30c" %}
 
 package:
@@ -22,7 +22,7 @@ requirements:
     - setuptools
     - python
     - cython
-    - numpy 1.16.*
+    - numpy >=1.16.*
   run:
     - python
     - {{ pin_compatible('numpy') }}
