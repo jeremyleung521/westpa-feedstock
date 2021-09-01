@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   skip: True  # [win or py2k]
 
 requirements:
@@ -22,7 +22,7 @@ requirements:
     - setuptools
     - python
     - cython
-    - numpy >=1.16.*
+    - numpy 1.21.*
   run:
     - python
     - {{ pin_compatible('numpy') }}
@@ -71,3 +71,4 @@ extra:
     - synapticarbors
     - burntyellow
     - ltchong
+    - jeremyleung521
