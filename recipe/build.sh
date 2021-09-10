@@ -12,10 +12,24 @@ WEST_PYTHON=$WEST_PYTHON $WEST_PYTHON .westpa_gen.py
 chmod +x westpa.sh
 
 # Export WESTPA environment variables
-mkdir -p ${PREFIX}/etc/conda/{activate,deactivate}.d
-touch ${PREFIX}/etc/conda/{activate,deactivate}.d/env_vars.sh
-cat << EOC >> ${PREFIX}/etc/conda/activate.d/env_vars.sh
+mkdir -p ${CONDA_PREFIX}/etc/conda/{activate,deactivate}.d
+touch ${CONDA_PREFIX}/etc/conda/{activate,deactivate}.d/env_vars.sh
+cat << EOC >> ${CONDA_PREFIX}/etc/conda/activate.d/env_vars.sh
 #!/usr/bin/env bash
-##. \$(dirname \$(dirname \`which python3\`))/${PKG_NAME}-${PKG_VERSION}/westpa.sh
 . ${PREFIX}/${PKG_NAME}-${PKG_VERSION}/westpa.sh
 EOC
+
+cat << EOD >> ${CONDA_PREFIX}/etc/conda/deactivate.d/env_vars.sh
+#!/usr/bin/env bash
+unset WEST_ROOT
+unset WEST_BIN
+unset WEST_PYTHON
+export PATH=${PATH#${PREFIX}/${PKG_NAME}-${PKG_VERSION}/bin:}
+EOD
+
+# Clean up of previously set codes in activate.d
+if [ -f ${PREFIX}/etc/conda/activate.d/env_vars.sh ]; then
+    sed -i 's,'". ${PREFIX}/westpa-2020.03/westpa.sh"',,' ${PREFIX}/etc/conda/activate.d/env_vars.sh || :
+    sed -i 's,'". ${PREFIX}/westpa-2020.02/westpa.sh"',,' ${PREFIX}/etc/conda/activate.d/env_vars.sh || :
+    sed -i 's,'". ${PREFIX}/westpa-2020.01/westpa.sh"',,' ${PREFIX}/etc/conda/activate.d/env_vars.sh || :
+fi
