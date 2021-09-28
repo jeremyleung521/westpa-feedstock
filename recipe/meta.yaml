@@ -1,6 +1,6 @@
 {% set name = "westpa" %}
 {% set version = "2020.05" %}
-{% set sha256 = "517f016d0aaafcd6b5a0c9da203fab8c7d4b72e3c15502406bcca38bffbabb63" %}
+{% set sha256 = "e93755babb0db4138f3a5da24f5a3a33885a655920352e803b5d84b1861a569f" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 2
   skip: True  # [win or py2k]
 
 requirements:
