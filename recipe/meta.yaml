@@ -1,5 +1,5 @@
 {% set name = "westpa" %}
-{% set version = "2020.05" %}
+{% set version = "2.0" %}
 {% set sha256 = "e93755babb0db4138f3a5da24f5a3a33885a655920352e803b5d84b1861a569f" %}
 
 package:
@@ -12,44 +12,49 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
   skip: True  # [win or py2k]
 
 requirements:
   build:
     - {{ compiler('c') }}
   host:
-    - setuptools
+    - setuptools>=40.8.0
     - python
-    - cython
-    - numpy 1.21.*|1.16.*
+    - wheel
+    - cython>=0.29.16
+    - oldest-supported-numpy
+    - scipy>=0.19.1
+    - versioneer-518
+    - pip
   run:
     - python
     - {{ pin_compatible('numpy') }}
-    - scipy
-    - h5py 2.10.*
+    - scipy>=0.19.1
+    - h5py>=2.10
+    - mdtraj>=1.9.5
     - pyyaml 5.3.*
     - pyzmq 19.0.*
     - matplotlib-base
     - blessings 1.7.*
     - ipykernel
+    - tqdm
+    - pandas
+    - tables
 
 test:
-  commands:
-    - "source ${PREFIX}/${PKG_NAME}-${PKG_VERSION}/westpa.sh"
-    - "source ${WEST_ROOT}/bin/w_env"
-    - "$WEST_PYTHON -c 'import west'"
-    - "$WEST_PYTHON -c 'import west.propagators'"
-    - "$WEST_PYTHON -c 'import westpa'"
-    - "$WEST_PYTHON -c 'import westpa.binning'"
-    - "$WEST_PYTHON -c 'import westpa.kinetics'"
-    - "$WEST_PYTHON -c 'import westpa.reweight'"
-    - "$WEST_PYTHON -c 'import work_managers'"
-    - "$WEST_PYTHON -c 'import westtools'"
-    - "$WEST_PYTHON -c 'import fasthist'"
-    - "$WEST_PYTHON -c 'import mclib'"
+  imports:
+    - westpa
+    - westpa.core.propagators
+    - westpa.core.binning
+    - westpa.core.kinetics
+    - westpa.core.reweight
+    - westpa.work_managers
+    - westpa.tools
+    - westpa.fasthist
+    - westpa.mclib
     # Currently blocked by https://github.com/westpa/westpa/issues/70
-    #- "$WEST_PYTHON -c 'import trajtree'"
+    #- westpa.trajtree
 
 about:
   home: https://westpa.github.io/westpa
@@ -67,7 +72,6 @@ about:
 extra:
   recipe-maintainers:
     - mczwier
-    - ajoshpratt
     - synapticarbors
     - burntyellow
     - ltchong
