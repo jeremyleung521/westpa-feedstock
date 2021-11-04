@@ -1,6 +1,6 @@
 {% set name = "westpa" %}
-{% set version = "2.0" %}
-{% set sha256 = "e93755babb0db4138f3a5da24f5a3a33885a655920352e803b5d84b1861a569f" %}
+{% set version = "2.0b6" %}
+{% set sha256 = "d6665a2cc90a17b44152f37168e650624f0dbf80acf8029ed73c1b058fa8fa73" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,8 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/westpa/westpa/archive/v{{ version }}.tar.gz
+  url: https://github.com/jeremyleung521/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
+  #  url: https://files.pythonhosted.org/packages/fe/e9/e9ef53a71a73dfe76a8875a8eb2ce1c16942a7878502270922c5fdc8016f/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
@@ -23,7 +24,7 @@ requirements:
     - python
     - wheel
     - cython>=0.29.16
-    - oldest-supported-numpy
+    - numpy>=1.16
     - scipy>=0.19.1
     - versioneer-518
     - pip
@@ -40,7 +41,7 @@ requirements:
     - ipykernel
     - tqdm
     - pandas
-    - tables
+    - pytables
 
 test:
   imports:
@@ -55,6 +56,22 @@ test:
     - westpa.mclib
     # Currently blocked by https://github.com/westpa/westpa/issues/70
     #- westpa.trajtree
+  source_files:
+{% if tests == "run"%}
+    - tests/*.py
+    - tests/test_tools
+    - tests/refs
+    - tests/fixtures
+{% endif %}
+  requires:
+{% if tests == "run"%}
+    - pytest
+    - nose
+{% endif %}
+  commands:
+{% if tests == "run"%}
+    - pytest -v tests/
+{% endif %}
 
 about:
   home: https://westpa.github.io/westpa
@@ -66,7 +83,7 @@ about:
   description: |
     WESTPA is a package for constructing and running stochastic simulations
     using the "weighted ensemble" approach of Huber and Kim (1996).
-  doc_url: https://westpa.github.io/westpa/sphinx_index.html#tutorials
+  doc_url: https://westpa.readthedocs.io/westpa/en/latest
   dev_url: https://github.com/westpa
 
 extra:
