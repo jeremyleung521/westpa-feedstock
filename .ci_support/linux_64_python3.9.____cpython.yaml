@@ -7,7 +7,7 @@ cdt_name:
 channel_sources:
 - conda-forge
 channel_targets:
-- conda-forge main
+- conda-forge westpa_dev
 docker_image:
 - quay.io/condaforge/linux-anvil-comp7
 pin_run_as_build:
@@ -18,8 +18,6 @@ python:
 - 3.9.* *_cpython
 target_platform:
 - linux-64
-tests:
-- run
 zip_keys:
 - - cdt_name
   - docker_image
