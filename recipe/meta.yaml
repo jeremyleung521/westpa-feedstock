@@ -1,6 +1,6 @@
 {% set name = "westpa" %}
 {% set version = "2.0dev1" %}
-{% set sha256 = "09b2f34cc47bb329c4b21b8ba46db29946c38319cc764e0512ca0fff85630d1b" %}
+{% set sha256 = "23f2a4c3ea67cc3fe2beba34bb61706d8668ccf8bae28d81ceef5df91dc73aa6" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
   skip: True  # [win or py2k]
   script: "{{ PYTHON }} -m pip install . -vv --no-deps"
 
@@ -34,8 +34,8 @@ requirements:
     - scipy >=0.19.1
     - h5py >=2.10
     - mdtraj >=1.9.5
-    - pyyaml 5.3.*
-    - pyzmq 19.0.*
+    - pyyaml >=5.3.*
+    - pyzmq >=19.0.*
     - matplotlib-base
     - blessings 1.7.*
     - ipykernel
