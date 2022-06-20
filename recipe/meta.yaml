@@ -1,6 +1,6 @@
 {% set name = "westpa" %}
-{% set version = "2.0dev1" %}
-{% set sha256 = "23f2a4c3ea67cc3fe2beba34bb61706d8668ccf8bae28d81ceef5df91dc73aa6" %}
+{% set version = "2022.01b1" %}
+{% set sha256 = "2d68b004b8b7e006403ab36ff20396c3bcf01f5d58bb2b9398086f162fcd0f08" %}
 
 package:
   name: {{ name|lower }}
@@ -8,11 +8,11 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/westpa/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
+  url: https://github.com/jeremyleung521/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
   skip: True  # [win or py2k]
   script: "{{ PYTHON }} -m pip install . -vv --no-deps"
 
