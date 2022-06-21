@@ -19,6 +19,10 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - python
+    - cross-python_{{ target_platform }}
+    - numpy >=1.16
+    - cython >=0.29.16
   host:
     - setuptools >=40.8.0
     - python
