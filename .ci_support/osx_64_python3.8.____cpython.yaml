@@ -7,7 +7,7 @@ c_compiler_version:
 channel_sources:
 - conda-forge
 channel_targets:
-- jeremyleung521 westpa
+- conda-forge westpa
 macos_machine:
 - x86_64-apple-darwin13.4.0
 pin_run_as_build:
