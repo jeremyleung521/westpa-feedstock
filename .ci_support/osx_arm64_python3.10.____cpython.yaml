@@ -18,9 +18,3 @@ python:
 - 3.10.* *_cpython
 target_platform:
 - osx-arm64
-build_platform:
-- osx-64
-
-CONDA_BUILD_SYSROOT:
-- /usr/local/opt/MacOSX11.0.sdk
-
