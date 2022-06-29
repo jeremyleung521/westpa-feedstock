@@ -1,6 +1,6 @@
 {% set name = "westpa" %}
 {% set version = "2022.01" %}
-{% set sha256 = "0fae9ba2a21b0e44d158e945370133f3a664874ac8de4c41ce6da089ae1021b0" %}
+{% set sha256 = "b6e8df2057bd1531f3119cf451994a6410b3c90c43764bcbf69ab52783107b6a" %}
 
 package:
   name: {{ name|lower }}
@@ -18,11 +18,11 @@ build:
 
 requirements:
   build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - cython >=0.29.16                       # [build_platform != target_platform]
+    - numpy >=1.16                           # [build_platform != target_platform]
     - {{ compiler('c') }}
-    - python
-    - cross-python_{{ target_platform }}
-    - numpy >=1.16
-    - cython >=0.29.16
   host:
     - setuptools >=40.8.0
     - python
