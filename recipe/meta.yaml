@@ -82,7 +82,7 @@ about:
   description: |
     WESTPA is a package for constructing and running stochastic simulations
     using the "weighted ensemble" approach of Huber and Kim (1996).
-  doc_url: https://westpa.readthedocs.io/westpa/en/latest
+  doc_url: https://westpa.readthedocs.io/en/latest
   dev_url: https://github.com/westpa
 
 extra:
