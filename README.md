@@ -11,7 +11,7 @@ Summary: Interoperable, highly-scalable software for weighted ensemble simulatio
 
 Development: https://github.com/westpa
 
-Documentation: https://westpa.readthedocs.io/en/latest
+Documentation: https://westpa.readthedocs.io/westpa/en/latest
 
 WESTPA is a package for constructing and running stochastic simulations
 using the "weighted ensemble" approach of Huber and Kim (1996).
