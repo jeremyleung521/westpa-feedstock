@@ -1,6 +1,6 @@
 {% set name = "westpa" %}
-{% set version = "2022.01" %}
-{% set sha256 = "b6e8df2057bd1531f3119cf451994a6410b3c90c43764bcbf69ab52783107b6a" %}
+{% set version = "2022.02" %}
+{% set sha256 = "a40a4110031e1bc5b0d336f39886cdf6c617e19c52a7914ef6f2e3fd2731ebf0" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
   skip: True  # [win or py2k]
   script: "{{ PYTHON }} -m pip install . -vv --no-deps"
 
