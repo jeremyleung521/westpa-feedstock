@@ -8,3 +8,5 @@ provider:
   linux_aarch64: false
   linux_ppc64le: false
 test_on_native_only: true
+conda_build:
+  pkg_format: '2'
