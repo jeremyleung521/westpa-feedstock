@@ -13,18 +13,18 @@ source:
 
 build:
   number: 0
-  skip: True  # [win or py2k]
+  skip: True  # [win or py2k or py>39]
 
 requirements:
   build:
     - {{ compiler('c') }}
   host:
     - setuptools
-    - python <3.10.0a1
+    - python
     - cython
     - numpy 1.21.*
   run:
-    - python <3.10.0a1
+    - python
     - numpy 1.21.*
     - scipy
     - h5py 2.10.*
