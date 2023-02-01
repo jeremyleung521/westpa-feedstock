@@ -1,6 +1,6 @@
 {% set name = "westpa" %}
-{% set version = "2020.05" %}
-{% set sha256 = "e93755babb0db4138f3a5da24f5a3a33885a655920352e803b5d84b1861a569f" %}
+{% set version = "2020.06" %}
+{% set sha256 = "55b8f0d0dfca3f3886df0afc000e9f8db72f5590add7ff4b225a470931ef5d51" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
   skip: True  # [win or py2k]
 
 requirements:
@@ -20,12 +20,12 @@ requirements:
     - {{ compiler('c') }}
   host:
     - setuptools
-    - python
+    - python<3.10.0a1
     - cython
-    - numpy 1.21.*|1.16.*
+    - numpy 1.21.*
   run:
-    - python
-    - {{ pin_compatible('numpy') }}
+    - python<3.10.0a1
+    - numpy 1.21.*
     - scipy
     - h5py 2.10.*
     - pyyaml 5.3.*
