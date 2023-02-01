@@ -20,11 +20,11 @@ requirements:
     - {{ compiler('c') }}
   host:
     - setuptools
-    - python<3.10.0a1
+    - python <3.10.0a1
     - cython
     - numpy 1.21.*
   run:
-    - python<3.10.0a1
+    - python <3.10.0a1
     - numpy 1.21.*
     - scipy
     - h5py 2.10.*
