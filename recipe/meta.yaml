@@ -20,16 +20,15 @@ requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython >=0.29.16                       # [build_platform != target_platform or py >=310]
-    - cython <3.0.3, >=0.29.16               # [build_platform != target_platform or py <3.10]
+    - cython >=0.29.16                       # [build_platform != target_platform]
     - numpy >=1.16                           # [build_platform != target_platform]
     - {{ compiler('c') }}
   host:
     - setuptools >=40.8.0
     - python
     - wheel
-    - cython >=0.29.16                       # [py >=310]
-    - cython <3.0.3, >=0.29.16               # [py < 310]
+    - cython >=0.29.16                       # [py >=39]
+    - cython <3.0.3, >=0.29.16               # [py <=38]
     - numpy >=1.16
     - scipy >=0.19.1
     - versioneer-518
