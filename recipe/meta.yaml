@@ -1,6 +1,6 @@
 {% set name = "westpa" %}
-{% set version = "2022.05" %}
-{% set sha256 = "15ef8e2cfcd522ab7d1b832c99fa618d3c023e1e5be85f0e09c8e36401c92595" %}
+{% set version = "2022.06" %}
+{% set sha256 = "aa89b5816dd89e5a47b5a7b619e778b840102ed262e8c711be714d62ad2267b4" %}
 
 package:
   name: {{ name|lower }}
@@ -27,7 +27,8 @@ requirements:
     - setuptools >=40.8.0
     - python
     - wheel
-    - cython >=0.29.16
+    - cython >=0.29.16                       # [py >=39]
+    - cython <3.0.3, >=0.29.16               # [py <=38]
     - numpy >=1.16
     - scipy >=0.19.1
     - versioneer-518
