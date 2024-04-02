@@ -1,6 +1,6 @@
 {% set name = "westpa" %}
-{% set version = "2022.06" %}
-{% set sha256 = "b7859d8d9f58190da47ca1ba3f7facee8f5c6873d4e8e03c015e9abdae3a6214" %}
+{% set version = "2022.07" %}
+{% set sha256 = "efc523e2384ec5b5eaa5b3684407d02f7598fabc2e4780ec42098c501885dc76" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   skip: True  # [win or py2k]
   script: "{{ PYTHON }} -m pip install . -vv --no-deps"
 
@@ -21,7 +21,7 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython >=0.29.16                       # [build_platform != target_platform]
-    - numpy >=1.16                           # [build_platform != target_platform]
+    - numpy >=1.16, <2                       # [build_platform != target_platform]
     - {{ compiler('c') }}
   host:
     - setuptools >=40.8.0
@@ -29,7 +29,7 @@ requirements:
     - wheel
     - cython >=0.29.16                       # [py >=39]
     - cython <3.0.3, >=0.29.16               # [py <=38]
-    - numpy >=1.16
+    - numpy >=1.16, <2
     - scipy >=0.19.1
     - versioneer-518
     - pip
