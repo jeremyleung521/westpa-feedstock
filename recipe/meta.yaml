@@ -1,6 +1,6 @@
 {% set name = "westpa" %}
 {% set version = "2022.08" %}
-{% set sha256 = "40fcb7d16747eb6c55cbba56b3167bae849dc4192d8cce754b055012519f2a1a" %}
+{% set sha256 = "f785fbe06011ebf7abcd5e65a6e5a63a24094ca37c63720e4685e44e0dd26fee" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0 
+  number: 1
   skip: True  # [win or py2k]
   script: "{{ PYTHON }} -m pip install . -vv --no-deps"
 
@@ -23,6 +23,7 @@ requirements:
     - cython >=0.29.16                       # [build_platform != target_platform]
     - numpy >=1.16, <2                       # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - setuptools >=40.8.0
     - python
