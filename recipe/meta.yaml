@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win or py2k or py>39]
 
 requirements:
@@ -21,7 +21,7 @@ requirements:
   host:
     - setuptools
     - python
-    - cython
+    - cython<3.0.3
     - numpy 1.21.*
   run:
     - python
