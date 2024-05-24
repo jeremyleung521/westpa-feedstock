@@ -18,10 +18,11 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
   host:
     - setuptools
     - python
-    - cython<3.0.3
+    - cython <3.0.3
     - numpy 1.21.*
   run:
     - python
