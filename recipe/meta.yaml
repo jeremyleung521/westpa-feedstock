@@ -1,6 +1,6 @@
 {% set name = "westpa" %}
-{% set version = "2022.09" %}
-{% set sha256 = "66211eb7686f9b485d0f89a2b35a39e6538623e46113edc84dfbf2e55353070f" %}
+{% set version = "2022.10" %}
+{% set sha256 = "8d9f627c9d7fbdd62c2ba952c00c27e3bcee7c97c7a91476f1fe6c4b27926a38" %}
 
 package:
   name: {{ name|lower }}
