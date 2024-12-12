@@ -21,7 +21,7 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython >=0.29.16                       # [build_platform != target_platform]
-    - numpy                                  # [build_platform != target_platform]
+    - numpy >=1.25.0,<2                      # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
   host:
@@ -29,7 +29,7 @@ requirements:
     - python
     - wheel
     - cython >=0.29.16
-    - numpy >=1.25, <2                       
+    - numpy >=1.25.0,<2                       
     - scipy >=0.19.1
     - versioneer-518
     - pip
