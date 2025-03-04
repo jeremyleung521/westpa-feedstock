@@ -1,5 +1,5 @@
 {% set name = "westpa" %}
-{% set version = "2022.11" %}
+{% set version = "2022.12" %}
 {% set sha256 = " 11bf414148247ddc156fe0b6304f93f769abc275954e912167ef23974adf428b" %}
 
 package:
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
   skip: True  # [win or py2k]
   script: "{{ PYTHON }} -m pip install . -vv --no-deps"
 
@@ -29,13 +29,13 @@ requirements:
     - python
     - wheel
     - cython >=0.29.16
-    - numpy >=1.25.0,<2                       
+    - numpy >=2.0.0,<3 
     - scipy >=0.19.1
     - versioneer-518
     - pip
   run:
     - python
-    - numpy >=1.25.0,<2
+    - numpy >=1.25.0,<3
     - scipy >=0.19.1
     - h5py >=2.10
     - mdtraj >=1.9.5
