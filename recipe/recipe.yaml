@@ -16,19 +16,17 @@ source:
 
 build:
   number: 1
-  skip: win or match(python, ">=2,<3")
+  skip: win
   script: ${{ PYTHON }} -m pip install . -vv --no-deps
 
 requirements:
   build:
     - if: build_platform != target_platform
-      then: python
-    - if: build_platform != target_platform
-      then: cross-python_${{ target_platform }}
-    - if: build_platform != target_platform
-      then: cython >=0.29.16
-    - if: build_platform != target_platform
-      then: numpy >=2.0.0,<3
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - cython >=0.29.16
+        - numpy >=2.0.0,<3
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
   host:
